@@ -57,11 +57,13 @@ func calculate(operand : String, x : Int, y : Int) -> Int {
     case "/":
         if (y == 0) {
             print("You cannot divide by 0.")
+            return -1
         } else {
             return x / y
         }
     default:
         print("Please enter a valid operation to be computed.")
+        return -1
     }
 }
 
@@ -76,17 +78,17 @@ func multipleOperand(operation:[String]) -> Int {
             sum = sum + convert(operation[i])
         }
         return sum / (operation.count - 1)
-  /*  case "fact":
+    case "fact":
         if operation.count > 2 {
-            print("Please enter only one number to be calculated.")
-            return 0
+        print("Please enter only one number to be calculated.")
+        return 0
         } else {
-            var fact = convert(operation[0]);
-            for var i = convert(operation[0]); i > 1; i-- {
-                fact *= i - 1
-            }
-            return fact
-        }*/
+        var fact = convert(operation[0]);
+        for var i = convert(operation[0]); i > 1; i-- {
+        fact *= i - 1
+        }
+        return fact
+        }
     default:
         print("Please enter correct values and try again.")
         return 0
@@ -128,43 +130,52 @@ func mathOpArray(op : ([Int]) -> Int, x : [Int]) -> Int {
 
 // add two tuples of integers together
 
-func addIntTuples(pointOne : (Int, Int), pointTwo : (Int, Int)) -> (Int, Int) {
-    return (pointOne.0 + pointTwo.0, pointOne.1 + pointTwo.1)
+func addTuples(tupleOne : (Int, Int), tupleTwo : (Int, Int)) -> (Int, Int) {
+    return (tupleOne.0 + tupleTwo.0, tupleOne.1 + tupleTwo.1)
 }
 
 // add two tuples of doubles together
-func addDoubleTuples(pointOne : (Double, Double), pointTwo : (Double, Double)) -> (Double, Double) {
-    return (pointOne.0 + pointTwo.0, pointOne.1 + pointTwo.1)
+func addTuples(tupleOne : (Double, Double), tupleTwo : (Double, Double)) -> (Double, Double) {
+    return (tupleOne.0 + tupleTwo.0, tupleOne.1 + tupleTwo.1)
 }
 
 // subtract one tuple of integers from another
-func subtractIntTuples(pointOne : (Int, Int), pointTwo : (Int, Int)) -> (Int, Int) {
-    return (pointOne.0 - pointTwo.0, pointOne.1 - pointTwo.1)
+func subtractTuples(tupleOne : (Int, Int), tupleTwo : (Int, Int)) -> (Int, Int) {
+    return (tupleOne.0 - tupleTwo.0, tupleOne.1 - tupleTwo.1)
 }
 
 // substract one tuple of integers from another
-func subtractDoubleTuples(pointOne : (Double, Double), pointTwo : (Double, Double)) -> (Double, Double) {
-    return (pointOne.0 - pointTwo.0, pointOne.1 - pointTwo.1)
+func subtractTuples(tupleOne : (Double, Double), tupleTwo : (Double, Double)) -> (Double, Double) {
+    return (tupleOne.0 - tupleTwo.0, tupleOne.1 - tupleTwo.1)
 }
 
 // add dictionaries of integers
-func addIntDictionaries(pointOne : Dictionary<String, Int>, pointTwo : Dictionary<String, Int>) -> Dictionary<String, Int> {
-    return ["x": (pointOne["x"]! + pointTwo["x"]!), "y": (pointTwo["y"]! + pointTwo["y"]!)]
+func addDictionaries(tupleOne : Dictionary<String, Int>, tupleTwo : Dictionary<String, Int>) -> Dictionary<String, Int> {
+    return ["x": (tupleOne["x"]! + tupleTwo["x"]!), "y": (tupleTwo["y"]! + tupleTwo["y"]!)]
 }
 
 // add dictionaries of doubles
-func addDoubleDictionaries(pointOne : Dictionary<String, Double>, pointTwo : Dictionary<String, Double>) -> Dictionary<String, Double> {
-    return ["x": (pointOne["x"]! + pointTwo["x"]!), "y": (pointTwo["y"]! + pointTwo["y"]!)]
+func addDictionaries(tupleOne : Dictionary<String, Double>, tupleTwo : Dictionary<String, Double>) -> Dictionary<String, Double> {
+    return ["x": (tupleOne["x"]! + tupleTwo["x"]!), "y": (tupleTwo["y"]! + tupleTwo["y"]!)]
 }
 
 //substract dictionaries of integers
-func subtractIntDictionaries(pointOne : Dictionary<String, Int>, pointTwo : Dictionary<String, Int>) -> Dictionary<String, Int> {
-    return ["x": (pointOne["x"]! - pointTwo["x"]!), "y": (pointTwo["y"]! - pointTwo["y"]!)]
+func subtractDictionaries(tupleOne : Dictionary<String, Int>, tupleTwo : Dictionary<String, Int>) -> Dictionary<String, Int> {
+    return ["x": (tupleOne["x"]! - tupleTwo["x"]!), "y": (tupleTwo["y"]! - tupleTwo["y"]!)]
 }
 
 // subtract dictionaries of doubles
-func subtractDoubleDictionaries(pointOne : Dictionary<String, Double>, pointTwo : Dictionary<String, Double>) -> Dictionary<String, Double> {
-    return ["x": (pointOne["x"]! - pointTwo["x"]!), "y": (pointTwo["y"]! - pointTwo["y"]!)]
+func subtractDictionaries(tupleOne : Dictionary<String, Double>, tupleTwo : Dictionary<String, Double>) -> Dictionary<String, Double> {
+    return ["x": (tupleOne["x"]! - tupleTwo["x"]!), "y": (tupleTwo["y"]! - tupleTwo["y"]!)]
+}
+
+func dictOperate (op : ([String : Int], [String : Int]) -> [String : Int],tupleOne : [String : Int], tupleTwo : [String : Int]) -> [String : Int] {
+        if tupleOne["x"] == nil || tupleTwo["x"] == nil
+            || tupleOne["y"] == nil || tupleTwo["y"] == nil {
+                print("The dictionary does not contain an x or y key.")
+                return ["x": -1, "y": -1]
+        }
+        return op(tupleOne, tupleTwo)
 }
 
 // console input and output
@@ -173,63 +184,79 @@ print("Please enter an expression to be calculated:")
 var firstInput = input()
 let operand = input()
 var secondInput = input()
-let nums = input().componentsSeparatedByString(" ")
 
-if (nums.count == 1) {
-    let x = convert(firstInput)
-    let y = convert(secondInput)
-    let result = calculate(operand, x : x, y : y)
-    print("Answer: \(result)")
-} else {
-    let otherResult = multipleOperand(nums)
-    print("Answer: \(otherResult)")
-}
+let x = convert(firstInput)
+let y = convert(secondInput)
+let result = calculate(operand, x : x, y : y)
+print("Answer: \(result)")
+
+
+let nums = input().componentsSeparatedByString(" ")
+let otherResult = multipleOperand(nums)
+print("Answer: \(otherResult)")
 
 print("---------- ARRAYS ----------")
+print("")
 
 let arrayOne = [1, 2, 3, 4, 5]
 let arrayTwo = [4, -6, -10, 3, -16]
 
 print("Array one is: \(arrayOne)")
 print("Array two is: \(arrayTwo)")
+print("")
 
 // add arrays
-print("The sum of the first array is: \(addArray(arrayOne))")
-print("The sum of the second array is: \(addArray(arrayTwo))")
+print("The sum of the first array is: \(mathOpArray(addArray, x: arrayOne))")
+print("The sum of the second array is: \(mathOpArray(addArray, x: arrayTwo))")
+print("")
 
 // multiply arrays
-print("The product of the first array is: \(multiplyArray(arrayOne))")
-print("The product of the second array is: \(multiplyArray(arrayTwo))")
+print("The product of the first array is: \(mathOpArray(multiplyArray, x: arrayOne))")
+print("The product of the second array is: \(mathOpArray(multiplyArray, x: arrayTwo))")
+print("")
 
 // count array elements
-print("The count of elements in the arrays is: \(arrayCount(arrayOne))")
+print("The count of elements in each array is: \(mathOpArray(arrayCount, x: arrayOne))")
+print("")
 
 // average array elements
-print("The average value of the elements in the first array is: \(arrayAvg(arrayOne))")
-print("The average value of the elements in the second array is: \(arrayAvg(arrayTwo))")
+print("The average value of the elements in the first array is: \(mathOpArray(arrayAvg, x: arrayOne))")
+print("The average value of the elements in the second array is: \(mathOpArray(arrayAvg, x: arrayTwo))")
+print("")
 
 print("---------- TUPLES ----------")
+print("")
 
 let tupleOne = (3, 4)
 let tupleTwo = (-6, -3)
 
 print("Tuple one is: \(tupleOne)")
 print("Tuple two is: \(tupleTwo)")
+print("")
 
 // add tuples
-print("The result of adding the tuples is: \(addIntTuples(tupleOne, tupleTwo))")
+print("The result of adding the tuples is: \(addTuples(tupleOne, tupleTwo: tupleTwo))")
+print("")
 
 // subtract tuples
-print("The result of substracting the tuples is: \(subtractIntTuples(tupleOne, tupleTwo))")
+print("The result of substracting the tuples is: \(subtractTuples(tupleOne, tupleTwo: tupleTwo))")
+print("")
 
 print("---------- DICTIONARIES ----------")
+print("")
 
-let dictOne = (3, 4)
-let dictTwo = (-6, -3)
+let dictOne = ["x": 8, "y": 4]
+let dictTwo = ["x": 2, "y": 6]
 
 print("Dictionary one is: \(dictOne)")
 print("Dictionary two is: \(dictTwo)")
+print("")
 
 // add dictionaries
+print("The result of adding the dictionaries is: \(dictOperate(addDictionaries, tupleOne : dictOne, tupleTwo : dictTwo))")
+print("")
 
 // subtract dictionaries
+print("The result of adding the dictionaries is: \(dictOperate(subtractDictionaries, tupleOne : dictOne, tupleTwo : dictTwo))")
+print("")
+
