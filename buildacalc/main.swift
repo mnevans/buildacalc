@@ -259,7 +259,7 @@ print("")
 print("The result of adding the dictionaries is: \(dictOperate(subtractDictionaries, tupleOne : dictOne, tupleTwo : dictTwo))")
 print("")
 
-print("POTENTIAL ERRORS")
+print("ERROR: EMPTY ARRAY")
 print("")
 
 // handle an empty array
@@ -273,10 +273,11 @@ print("Dictionary one is: \(dictOne)")
 print("Dictionary two is: \(dictTwo)")
 print("")
 
-// add dictionaries
+print("ERROR: NO X OR Y VALUE")
+print("")
+
 print("The result of adding the dictionaries is: \(dictOperate(addDictionaries, tupleOne : missingX, tupleTwo : dictTwo))")
 print("")
 
-// subtract dictionaries
 print("The result of subtracting the dictionaries is: \(dictOperate(subtractDictionaries, tupleOne : missingY, tupleTwo : dictTwo))")
 print("")
