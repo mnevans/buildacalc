@@ -190,12 +190,11 @@ let y = convert(secondInput)
 let result = calculate(operand, x : x, y : y)
 print("Answer: \(result)")
 
-
 let nums = input().componentsSeparatedByString(" ")
 let otherResult = multipleOperand(nums)
 print("Answer: \(otherResult)")
 
-print("---------- ARRAYS ----------")
+print("ARRAYS")
 print("")
 
 let arrayOne = [1, 2, 3, 4, 5]
@@ -224,7 +223,7 @@ print("The average value of the elements in the first array is: \(mathOpArray(ar
 print("The average value of the elements in the second array is: \(mathOpArray(arrayAvg, x: arrayTwo))")
 print("")
 
-print("---------- TUPLES ----------")
+print("TUPLES")
 print("")
 
 let tupleOne = (3, 4)
@@ -242,7 +241,7 @@ print("")
 print("The result of substracting the tuples is: \(subtractTuples(tupleOne, tupleTwo: tupleTwo))")
 print("")
 
-print("---------- DICTIONARIES ----------")
+print("DICTIONARIES")
 print("")
 
 let dictOne = ["x": 8, "y": 4]
@@ -260,3 +259,24 @@ print("")
 print("The result of adding the dictionaries is: \(dictOperate(subtractDictionaries, tupleOne : dictOne, tupleTwo : dictTwo))")
 print("")
 
+print("POTENTIAL ERRORS")
+print("")
+
+// handle an empty array
+let emptyArray = [Int]()
+print("The empty array is: [\(mathOpArray(addArray, x : emptyArray))]")
+print("")
+
+let missingY = ["x" : 1]
+let missingX = ["y" : 1]
+print("Dictionary one is: \(dictOne)")
+print("Dictionary two is: \(dictTwo)")
+print("")
+
+// add dictionaries
+print("The result of adding the dictionaries is: \(dictOperate(addDictionaries, tupleOne : missingX, tupleTwo : dictTwo))")
+print("")
+
+// subtract dictionaries
+print("The result of subtracting the dictionaries is: \(dictOperate(subtractDictionaries, tupleOne : missingY, tupleTwo : dictTwo))")
+print("")
