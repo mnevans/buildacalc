@@ -128,13 +128,27 @@ func mathOpArray(op : ([Int]) -> Int, x : [Int]) -> Int {
 
 // add two tuples of integers together
 
-// subtract one tuple of integers from another
+func addIntTuples(pointOne : (Int, Int), pointTwo : (Int, Int)) -> (Int, Int) {
+    return (pointOne.0 + pointTwo.0, pointOne.1 + pointTwo.1)
+}
 
 // add two tuples of doubles together
+func addDoubleTuples(pointOne : (Double, Double), pointTwo : (Double, Double)) -> (Double, Double) {
+    return (pointOne.0 + pointTwo.0, pointOne.1 + pointTwo.1)
+}
+
+// subtract one tuple of integers from another
+func subtractIntTuples(pointOne : (Int, Int), pointTwo : (Int, Int)) -> (Int, Int) {
+    return (pointOne.0 - pointTwo.0, pointOne.1 - pointTwo.1)
+}
 
 // substract one tuple of integers from another
+func subtractDoubleTuples(pointOne : (Double, Double), pointTwo : (Double, Double)) -> (Double, Double) {
+    return (pointOne.0 - pointTwo.0, pointOne.1 - pointTwo.1)
+}
 
 // add dictionaries
+
 
 //substract dictionaries
 
