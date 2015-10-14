@@ -182,5 +182,54 @@ if (nums.count == 1) {
     print("Answer: \(result)")
 } else {
     let otherResult = multipleOperand(nums)
-    print(otherResult)
+    print("Answer: \(otherResult)")
 }
+
+print("---------- ARRAYS ----------")
+
+let arrayOne = [1, 2, 3, 4, 5]
+let arrayTwo = [4, -6, -10, 3, -16]
+
+print("Array one is: \(arrayOne)")
+print("Array two is: \(arrayTwo)")
+
+// add arrays
+print("The sum of the first array is: \(addArray(arrayOne))")
+print("The sum of the second array is: \(addArray(arrayTwo))")
+
+// multiply arrays
+print("The product of the first array is: \(multiplyArray(arrayOne))")
+print("The product of the second array is: \(multiplyArray(arrayTwo))")
+
+// count array elements
+print("The count of elements in the arrays is: \(arrayCount(arrayOne))")
+
+// average array elements
+print("The average value of the elements in the first array is: \(arrayAvg(arrayOne))")
+print("The average value of the elements in the second array is: \(arrayAvg(arrayTwo))")
+
+print("---------- TUPLES ----------")
+
+let tupleOne = (3, 4)
+let tupleTwo = (-6, -3)
+
+print("Tuple one is: \(tupleOne)")
+print("Tuple two is: \(tupleTwo)")
+
+// add tuples
+print("The result of adding the tuples is: \(addIntTuples(tupleOne, tupleTwo))")
+
+// subtract tuples
+print("The result of substracting the tuples is: \(subtractIntTuples(tupleOne, tupleTwo))")
+
+print("---------- DICTIONARIES ----------")
+
+let dictOne = (3, 4)
+let dictTwo = (-6, -3)
+
+print("Dictionary one is: \(dictOne)")
+print("Dictionary two is: \(dictTwo)")
+
+// add dictionaries
+
+// subtract dictionaries

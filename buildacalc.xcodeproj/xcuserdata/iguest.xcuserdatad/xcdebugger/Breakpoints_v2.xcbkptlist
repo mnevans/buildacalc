@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
             endingLineNumber = "120"
-            landmarkName = "mathOpArray(_:_:)"
+            landmarkName = "arrayAvg(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -38,7 +38,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buildacalc/main.swift"
@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "151"
             endingLineNumber = "151"
-            landmarkName = "addDictionaries(_:_:)"
+            landmarkName = "addIntDictionaries(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
