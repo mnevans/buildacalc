@@ -147,10 +147,25 @@ func subtractDoubleTuples(pointOne : (Double, Double), pointTwo : (Double, Doubl
     return (pointOne.0 - pointTwo.0, pointOne.1 - pointTwo.1)
 }
 
-// add dictionaries
+// add dictionaries of integers
+func addIntDictionaries(pointOne : Dictionary<String, Int>, pointTwo : Dictionary<String, Int>) -> Dictionary<String, Int> {
+    return ["x": (pointOne["x"]! + pointTwo["x"]!), "y": (pointTwo["y"]! + pointTwo["y"]!)]
+}
 
+// add dictionaries of doubles
+func addDoubleDictionaries(pointOne : Dictionary<String, Double>, pointTwo : Dictionary<String, Double>) -> Dictionary<String, Double> {
+    return ["x": (pointOne["x"]! + pointTwo["x"]!), "y": (pointTwo["y"]! + pointTwo["y"]!)]
+}
 
-//substract dictionaries
+//substract dictionaries of integers
+func subtractIntDictionaries(pointOne : Dictionary<String, Int>, pointTwo : Dictionary<String, Int>) -> Dictionary<String, Int> {
+    return ["x": (pointOne["x"]! - pointTwo["x"]!), "y": (pointTwo["y"]! - pointTwo["y"]!)]
+}
+
+// subtract dictionaries of doubles
+func subtractDoubleDictionaries(pointOne : Dictionary<String, Double>, pointTwo : Dictionary<String, Double>) -> Dictionary<String, Double> {
+    return ["x": (pointOne["x"]! - pointTwo["x"]!), "y": (pointTwo["y"]! - pointTwo["y"]!)]
+}
 
 // console input and output
 print("Please enter an expression to be calculated:")
