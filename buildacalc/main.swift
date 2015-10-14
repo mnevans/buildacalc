@@ -15,6 +15,7 @@ func input() -> String {
     return result.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
 }
 
+// convert strings to integers
 func convert(incoming : String) -> Int {
     return NSNumberFormatter().numberFromString(incoming)!.integerValue
 }
@@ -44,11 +45,11 @@ func mathOp(x : Int, y : Int, op : (Int, Int) -> Int) -> Int {
     return op(x, y)
 }
 
+// calculate generic math operations
 func calculate(operand : String, x : Int, y : Int) -> Int {
     switch operand {
     case "+":
         return x + y
-        //mathOp(x : x, y : y, op : add(x, y))
     case "-":
         return x - y
     case "*":
@@ -64,24 +65,7 @@ func calculate(operand : String, x : Int, y : Int) -> Int {
     }
 }
 
-// add function with an array of integers, that adds all elements
-func addArray(nums : [Int]) -> Int {
-    var result : Int = 0
-    for var i = 0; i < nums.count; i++ { // for n in nums {
-        result += i
-    }
-    return result
-}
-
-// multiply function with an array of integers, that multiples all elements
-func multiplyArray(nums : [Int]) -> Int {
-    var result : Int = nums[0]
-    for var i = 1; i < nums.count; i++ { // for n in nums
-        result *= i
-    }
-    return result
-}
-
+// calculate the number of elements and/or average value of all elements
 func multipleOperand(operation:[String]) -> Int {
     switch operation[operation.count - 1] {
     case "count":
@@ -92,7 +76,7 @@ func multipleOperand(operation:[String]) -> Int {
             sum = sum + convert(operation[i])
         }
         return sum / (operation.count - 1)
-    case "fact":
+  /*  case "fact":
         if operation.count > 2 {
             print("Please enter only one number to be calculated.")
             return 0
@@ -102,18 +86,59 @@ func multipleOperand(operation:[String]) -> Int {
                 fact *= i - 1
             }
             return fact
-        }
+        }*/
     default:
         print("Please enter correct values and try again.")
         return 0
     }
 }
 
-// generic math operation function that takes an array of integers
-func mathOpArray(nums : [Int], op : [Int] -> Int) -> Int {
-    return op(nums)
+// add function with an array of integers, that adds all elements
+func addArray(x : [Int]) -> Int {
+    var result : Int = 0
+    for var i = 0; i < x.count; i++ {
+        result += x[i]
+    }
+    return result
 }
 
+// multiply function with an array of integers, that multiples all elements
+func multiplyArray(x : [Int]) -> Int {
+    var result : Int = 1
+    for var i = 1; i < x.count; i++ {
+        result *= x[i]
+    }
+    return result
+}
+
+// count the number of elements in the array
+func arrayCount(x : [Int]) -> Int {
+    return x.count
+}
+
+// average the values all of the elements in the array
+func arrayAvg(x : [Int]) -> Int {
+    return addArray(x) / arrayCount(x)
+}
+
+// generic math operation function that takes an array of integers
+func mathOpArray(op : ([Int]) -> Int, x : [Int]) -> Int {
+    return op(x)
+}
+
+// add two tuples of integers together
+
+// subtract one tuple of integers from another
+
+// add two tuples of doubles together
+
+// substract one tuple of integers from another
+
+// add dictionaries
+
+//substract dictionaries
+
+// console input and output
 print("Please enter an expression to be calculated:")
 
 var firstInput = input()
